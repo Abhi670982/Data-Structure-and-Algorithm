@@ -1,0 +1,35 @@
+SLIDING WINDOW : is an optimization technique used to solve problems that deal with subarrays / substrings of a fixed or variable size.
+Instead of recalculating everything again and again, we reuse the result of the previous window by:
+                   adding a new element
+                   removing an old element
+This reduces time complexity significantly.
+
+
+
+EASY QUESTIONS OF LEETCODE: 
+       => 643: Maximum Average Subarray I
+
+       Solution: 
+
+       class Solution {
+public:
+    double findMaxAverage(vector<int>& nums, int k) {
+        int n = nums.size();
+        int windowSum = 0;
+
+
+        for(int i=0; i<k; i++){
+            windowSum += nums[i];
+        }
+
+        int maxSum = windowSum;
+
+        for(int i = k; i<n; i++){
+            windowSum += nums[i]; // adds new element
+            windowSum -= nums[i-k]; // removes old element
+            maxSum = max(maxSum, windowSum);
+        }
+           return (double)maxSum/k;
+    }
+};
+          
