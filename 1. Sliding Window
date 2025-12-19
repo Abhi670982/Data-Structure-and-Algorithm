@@ -36,7 +36,7 @@ public:
 
 
 
-
+MEDIUM LEVEL QUESTION OF LEETCODE
        => Question no. 1456. Maximum Number of Vowels in a Substring of Given Length                 Date : 19 Dec 2025
 
                Solution : 
@@ -68,4 +68,36 @@ public:
         return c == 'a' || c == 'e' ||c == 'i' || c == 'o' || c == 'u';
        }
 };
-          
+
+
+      => Question no. 1343. Number of Sub-arrays of Size K and Average Greater than or Equal to Threshold            Date : 19 Dec 2025
+
+            Solution:
+
+           class Solution {
+public:
+    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
+        int sum = 0;
+        int count = 0;
+        for(int i=0; i<k; i++){
+            sum += arr[i];
+        }
+       if (maxAvg(sum, threshold, k)) count++;
+
+        for(int i=k; i<arr.size(); i++){
+            sum += arr[i];
+            sum -= arr[i-k];
+            if(maxAvg(sum, threshold, k)) count++;
+        }
+        return count;
+    }
+    public:
+    bool maxAvg(int a, int t, int k){
+        int average = a/k;
+        if(average >= t){
+         return true;
+        }
+     return false;   
+    }
+    
+};
