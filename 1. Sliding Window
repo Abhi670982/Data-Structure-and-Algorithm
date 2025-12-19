@@ -7,7 +7,7 @@ This reduces time complexity significantly.
 
 
 EASY QUESTIONS OF LEETCODE: 
-       => 643: Maximum Average Subarray I
+       => 643: Maximum Average Subarray I                                          Date : 18 Dec 2025
 
        Solution: 
 
@@ -37,7 +37,7 @@ public:
 
 
 
-       => Question no. 1456. Maximum Number of Vowels in a Substring of Given Length
+       => Question no. 1456. Maximum Number of Vowels in a Substring of Given Length                 Date : 19 Dec 2025
 
                Solution : 
 
