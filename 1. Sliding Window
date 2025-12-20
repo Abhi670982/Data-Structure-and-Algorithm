@@ -34,6 +34,29 @@ public:
 };
 
 
+       => 219: Contains Duplicate || I                                          Date : 20 Dec 2025
+
+        Solution:
+
+
+class Solution {
+public:
+    bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        int n = nums.size();
+
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j <= i + k && j < n; j++) {
+                if (nums[i] == nums[j]) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+};
+
+
 
 
 MEDIUM LEVEL QUESTION OF LEETCODE
