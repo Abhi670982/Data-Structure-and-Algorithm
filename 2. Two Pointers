@@ -1,0 +1,63 @@
+Two Pointers is an algorithmic technique where two variables (pointers) are used to traverse a data structure simultaneously—usually an array or string—to reduce time complexity by avoiding nested loops.
+Instead of checking every possible pair (O(n²)), we move the pointers strategically based on conditions to solve the problem in O(n) time.
+
+🟢 Easy Two Pointers (LeetCode)
+
+Start with these to build confidence + pointer movement logic.
+LeetCode 167 – Two Sum II (Input Array Is Sorted)
+LeetCode 344 – Reverse String
+LeetCode 125 – Valid Palindrome
+LeetCode 26 – Remove Duplicates from Sorted Array
+LeetCode 27 – Remove Element
+LeetCode 977 – Squares of a Sorted Array
+LeetCode 88 – Merge Sorted Array
+LeetCode 283 – Move Zeroes
+👉 Focus here on:
+left, right pointer movement
+In-place modification
+O(n) time solutions
+🟡 Medium Two Pointers (LeetCode)
+These test decision making + optimization.
+LeetCode 11 – Container With Most Water
+LeetCode 15 – 3Sum
+LeetCode 16 – 3Sum Closest
+LeetCode 75 – Sort Colors (Dutch National Flag)
+LeetCode 3 – Longest Substring Without Repeating Characters
+LeetCode 209 – Minimum Size Subarray Sum
+LeetCode 713 – Subarray Product Less Than K
+LeetCode 42 – Trapping Rain Water
+LeetCode 392 – Is Subsequence
+👉 Focus here on:
+Why move left vs right
+Handling duplicates
+Sliding window variations
+
+
+MEDIUM LEVEL QUESTION -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Question 167: Two Sum II (Input Array Is Sorted)                                                                                 Date : 26|12|2025
+
+Solution: class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        int left = 0;
+        int right = numbers.size() - 1;
+
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+
+            if (sum == target) {
+                
+                return {left + 1, right + 1};
+            }
+            else if (sum < target) {
+                left++;
+            }
+            else {
+                right--;
+            }
+        }
+
+        return {};
+    }
+};
