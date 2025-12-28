@@ -180,9 +180,9 @@ public:
 
 
 
-        => HARD LEVEL QUESTION OF LEETCODE                                           Date: 25/12/2025
+=> HARD LEVEL QUESTION OF LEETCODE ------------------------------------------------------------------------------------------------------------------                                         
 
-Leetcode Question 76. Minimum Window Substring
+Leetcode Question 76. Minimum Window Substring                                                                        Date: 25/12/2025
 
 Solution : 
 
@@ -219,6 +219,39 @@ public:
         }
 
         return minLen == INT_MAX ? "" : s.substr(startIndex, minLen);
+    }
+};
+
+LeetCode question : 239 Sliding Window Maximum                                                                       Date: 28|12|2025
+
+Solution : 
+class Solution {
+public:
+    vector<int> maxSlidingWindow(vector<int>& nums, int k) {
+        deque<int> dq;          
+        vector<int> result;
+
+        for (int i = 0; i < nums.size(); i++) {
+
+            if (!dq.empty() && dq.front() == i - k) {
+                dq.pop_front();
+            }
+
+          
+            while (!dq.empty() && nums[dq.back()] < nums[i]) {
+                dq.pop_back();
+            }
+
+            
+            dq.push_back(i);
+
+         
+            if (i >= k - 1) {
+                result.push_back(nums[dq.front()]);
+            }
+        }
+
+        return result;
     }
 };
 
