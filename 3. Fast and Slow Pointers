@@ -1,0 +1,38 @@
+The fast and slow pointer technique uses two pointers moving at different speeds through a data structure (usually a linked list or array) to solve problems efficiently in O(n) time and O(1) space.
+🧠 Basic Idea
+Slow pointer (slow) → moves 1 step at a time
+Fast pointer (fast) → moves 2 steps at a time
+Because of the speed difference, we can detect patterns like:
+loops (cycles)
+middle elements
+intersections
+
+🚀 Why is it Powerful?
+✅ Avoids extra memory (no hash sets)
+✅ Faster than brute force
+✅ Very common in LeetCode + interviews
+
+🐢🐇 Famous Name
+This technique is also called Floyd’s Cycle Detection Algorithm
+Slow = Tortoise 🐢
+Fast = Hare 🐇
+
+
+LeeCode Easy Question : 
+Question : 876           Middle Of The LinkedList                                                                                                         04|01|2026
+
+solution:
+
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode* slow = head;
+        ListNode* fast = head;
+
+        while(fast!=nullptr && fast->next!=nullptr){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+        return slow;
+    }
+};
