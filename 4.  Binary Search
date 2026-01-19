@@ -1,5 +1,30 @@
 Binary Search : Binary search is an efficient search algorithm that finds the position of a target value within a sorted array. It works by repeatedly dividing the search interval in half, which is why it is much faster than linear search for large datasets. 
 
+Easy Level Question of Leetcode ==================================================================================================================================================
+Question no: 704
+Solution: 
+class Solution {
+public:
+    int search(vector<int>& nums, int target) {
+        int start = 0;
+        int end = nums.size() - 1;
+
+        while(start <= end){
+            int mid = start + (end - start) / 2;
+
+            if(nums[mid] == target){
+                return mid;
+            }
+            else if(target < nums[mid]){
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+};
 
 Medium Level Question Of Leetcode ================================================================================================================================================
 
